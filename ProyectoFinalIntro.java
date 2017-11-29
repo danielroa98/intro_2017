@@ -1,28 +1,38 @@
 import javax.swing.JOptionPane;
 import java.util.*;
-
+import java.io.*;
 public class ProyectoFinalIntro
 {
-  public static void main(String[] args)
+  public static void main(String[] args) throws IOException
   {
     Scanner lectura = new Scanner(System.in);
 
-    double total, totalpor, parcial1, parcial2, proyecto, semanai;
-    double aprox, totalexamen, tareas, tar, trabajos, trab;
+    File archivo;
+		archivo = new File("calificaciones.txt");
+
+    double total=0, totalpor, parcial1, parcial2, proyecto, semanai;
+    double aprox=0, totalexamen, tareas, tar, trabajos, trab;
     double examenfinal, par1, par2, pr, semi, efinal, val1, val2, val3, val4, val5, val6;
 
     String y;
     String x = "si";
     String z = "Si";
+    String materia;
 
     semi = .05;
 
+    archivo.createNewFile();
+
+    FileWriter escritor = new FileWriter(archivo, true);
+    PrintWriter pw=new PrintWriter(escritor);
 
     JOptionPane.showMessageDialog(null, "Bienvenido al sistema!", "Inicio", JOptionPane.INFORMATION_MESSAGE);
 
     JOptionPane.showMessageDialog(null, "A continuación, insertarás tus calificaciones correspondientes.", "Inicio", JOptionPane.INFORMATION_MESSAGE);
 
     JOptionPane.showMessageDialog(null, "Esto calculará su calificación necesaria en el examen para pasar.", "Inicio", JOptionPane.INFORMATION_MESSAGE);
+
+    materia = JOptionPane.showInputDialog(null, "Escribe el nombre de la materia", "Materia", JOptionPane.QUESTION_MESSAGE);
 
     y = JOptionPane.showInputDialog(null, "Estuviste en el Reto Emprendedor?", "Reto Emprendedor", JOptionPane.QUESTION_MESSAGE);
 
@@ -128,6 +138,9 @@ public class ProyectoFinalIntro
       JOptionPane.showMessageDialog(null, "Necesitas: " +aprox+" de calificación en el examen.", "Calificación", JOptionPane.INFORMATION_MESSAGE);
    }
 
+   pw.println("Materia: "+materia+". Minimo de puntos en la materia: "+total+". Calificacion necesaria en el examen final para pasar: "+aprox);
+
+   escritor.close();
 
   }
 }
