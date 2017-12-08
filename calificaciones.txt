@@ -1,0 +1,2 @@
+Materia: null. Minimo de puntos en la materia: 0.0. Calificacion necesaria en el examen final para pasar: 0.0
+Materia: calculo1. Minimo de puntos en la materia: 140.25. Calificacion necesaria en el examen final para pasar: -351.25
